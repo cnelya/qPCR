@@ -20,8 +20,8 @@ qPCR_pcrd = fd.askopenfilename()
 # Figure out name of csv file with data (so you don't have to remember which output to use!)
 qPCR_pre= qPCR_pcrd.split('.pcrd')
 
-#qPCR_results = qPCR_pre[0] + ' -  Quantification Amplification Results_SYBR.csv'
-qPCR_results = qPCR_pre[0] + ' -  Quantification Amplification Results.xlsx'
+qPCR_results = qPCR_pre[0] + ' -  Quantification Amplification Results_SYBR.csv'
+#qPCR_results = qPCR_pre[0] + ' -  Quantification Amplification Results.xlsx'
 qPCR_output = qPCR_pre[0] + '-Cq values.csv'
 
 # Open a new output file to write results to
@@ -29,8 +29,8 @@ hOut = open(qPCR_output,'w')
 hOut.write('Well,Cq\n')
 
 # Read in qPCR data to pandas dataframe
-#qData = pd.read_csv(qPCR_results)
-qData = pd.read_excel(qPCR_results)
+qData = pd.read_csv(qPCR_results)
+#qData = pd.read_excel(qPCR_results)
 
 # Find qDf [slope] (difference between cycles for each well)
 qDf = qData.diff()
